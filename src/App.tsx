@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 import logo from './assets/logo.png';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className='box_wrapper m-2'>
-      <div className='logo'>
-        <img src={logo} alt="xxxs" />
+    <div className='box_wrapper m-20'>
+      <div className='logo flex justify-center pb-5'>
+        <img src={logo} alt="图片错误" className='max-w-xs' />
       </div>
-      <div className='search_box'>
+      <div className='search_box flex justify-center '>
         <input type="text" />
-        <button>按钮</button>
+        <button className="bg-blue-500 text-white rounded-r-md py-2 px-5">百度一下</button>
       </div>
     </div>
   );
