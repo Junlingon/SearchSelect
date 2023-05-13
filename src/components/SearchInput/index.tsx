@@ -4,7 +4,7 @@ import { AutoComplete } from 'antd';
 import axios from 'axios';
 import { debounce } from 'lodash';
 
-const App: React.FC = () => {
+const SearchInput: React.FC = () => {
     const [keywords, setKeywords] = useState<SelectProps<object>['options']>([
         {
             label: "中国银行",
@@ -50,8 +50,8 @@ const App: React.FC = () => {
     const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
     const searchResult = (query: string) => {
-        const res: any[] = []
-        keywords?.map((item: any) => {
+        const res: { label: string; value: string; }[] = []
+        keywords?.map((item) => {
             if (item.text.length > query.length && item.text.slice(0, query.length) === query) {
                 res.push({ label: item.text, value: item.text });
             }
@@ -87,6 +87,4 @@ const App: React.FC = () => {
     )
 }
 
-
-
-export default App;
+export default SearchInput;
