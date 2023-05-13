@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import logo from './assets/logo.png';
-import SearchSelect from './components/SearchSelect'
+import SearchInput from './components/SearchInput'
 
 const App: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const App: React.FC = () => {
       </div>
       <div className='search_box flex justify-center '>
         <div className='min-w-550 rounded-l-md'>
-          <SearchSelect style={{ width: '100%', height: '100%' }} />
+          <SearchInput />
         </div>
         <button className='bg-blue-500 text-white rounded-r-md py-2 px-5'>百度一下</button>
       </div>
