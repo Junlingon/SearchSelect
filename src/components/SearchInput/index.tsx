@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { SelectProps } from 'antd/es/select';
 import { AutoComplete } from 'antd';
 import axios from 'axios';
+import { debounce } from 'lodash';
 
 const App: React.FC = () => {
     const [keywords, setKeywords] = useState<SelectProps<object>['options']>([
@@ -59,7 +60,10 @@ const App: React.FC = () => {
     };
 
     const handleSearch = (value: string) => {
-        setOptions(value ? searchResult(value) : []);
+        const debouncedSearch = debounce((value: string) => {
+            setOptions(value ? searchResult(value) : []);
+        }, 500);
+        debouncedSearch(value);
     };
 
     const onSelect = (value: string) => {
